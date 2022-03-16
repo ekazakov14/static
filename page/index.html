@@ -12,9 +12,9 @@
       }
 
       input {
-        font-size: 20px;
-        height: 50px;
-        width: 500px;
+        font-size: 30px;
+        height: 80px;
+        width: 600px;
         margin-top: 150px;
       }
 
@@ -34,8 +34,7 @@
       if (window.visualViewport) {
         var windowtop = document.getElementById("windowtop");
 
-        windowtop.style.bottom =
-          window.innerHeight - window.visualViewport.height + "px";
+        windowtop.style.bottom = window.visualViewport.offsetTop + window.visualViewport.height - 80 + 'px';
         windowtop.style.left = window.visualViewport.offsetLeft + "px";
         windowtop.style.width = window.visualViewport.width + "px";
 
