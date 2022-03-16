@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Parcel Sandbox</title>
+    <meta charset="UTF-8" />
+    <style>
+      #windowtop {
+        width: 100%;
+        height: 20px;
+        position: fixed;
+        background: red;
+      }
+
+      input {
+        font-size: 20px;
+        height: 50px;
+        width: 500px;
+        margin-top: 150px;
+      }
+
+      body {
+        height: 20000px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="windowtop">
+      fixed
+    </div>
+    <input type="text" />
+
+    <script>
+      if (window.visualViewport) {
+        var windowtop = document.getElementById("windowtop");
+
+        windowtop.style.bottom =
+          window.innerHeight - window.visualViewport.height + "px";
+        windowtop.style.left = window.visualViewport.offsetLeft + "px";
+        windowtop.style.width = window.visualViewport.width + "px";
+
+        onWindowScroll();
+        window.visualViewport.addEventListener("resize", onWindowScroll);
+        window.visualViewport.addEventListener("scroll", onWindowScroll);
+        // https://developers.google.com/web/updates/2017/09/visual-viewport-api#gotchas
+        window.addEventListener("scroll", onWindowScroll);
+      }
+    </script>
+  </body>
+</html>
